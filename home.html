@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Forge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow: scroll;
+        }
+
+        body {
+            background-color: rgb(1, 1, 14);
+            font-family: 'Roboto', sans-serif;
+            color: white;
+        }
+
+        nav {
+            /* position: absolute; */
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(53, 55, 58);
+            padding: 20px;
+            box-shadow: 0px 2px 6px 2px rgba(31, 30, 30, 0.5);
+            z-index: 999;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .logo h1 {
+            font-size: 30px;
+            color: rgb(11, 103, 223);
+            margin: 0;
+        }
+
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 80px);
+            background-image: url(contact.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .homeText {
+            text-align: center;
+            color: rgb(145, 150, 163);
+        }
+
+        .homeText h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .homeText h3,
+        .homeText p {
+            font-size: 18px;
+            color: silver;
+            margin-bottom: 20px;
+        }
+
+        .homeText button {
+            font-size: 18px;
+            width: 160px;
+            height: 50px;
+            background-color: rgb(66, 46, 126);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .homeText button:hover {
+            background-color: transparent;
+            border: 2px solid white;
+            color: rgb(23, 252, 23);
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            /* padding: 4px; */
+            background-color: rgb(59, 67, 80);
+            color: white;
+            /* position: fixed; */
+            bottom: 0;
+            width: 100%;
+            z-index: 999;
+            box-shadow: 0px -2px 6px 2px rgba(36, 36, 36, 0.5);
+        }
+
+        .footerText {
+            margin-right: 20px; 
+            margin-left: 10px; 
+            float: right;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        .social-icon{
+            padding-left: 20px;
+            
+        }
+
+        .footerText h2 {
+            font-size: 25px;
+            margin-bottom: 10px;
+            color: rgb(0, 1, 6);
+
+        }
+
+        .footerText p {
+            font-size: 20px;
+            color: rgb(237, 233, 233);
+            margin-bottom: 5px;
+        }
+        .footerText a{
+            color: azure;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <h1>Fitness Forge</h1>
+        </div>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="Bmi_calculator.html">BMI Calculator</a></li>
+            <li><a href="workout.html">Workout</a></li>
+            <li><a href="plan.html">Plans</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="Login.html">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    
+    <div class="home" id="home">
+        <div class="homeText">
+            <h1>Sweat, Strive, Succeed.</h1>
+            <h3>Embrace the commitment, embrace the sweat. In the journey to fitness, every rep, every step counts.</h3>
+            <a href="Contactus.html"><button>Join Now</button></a>
+        </div>
+    </div>
+
+    
+    <div class="footer">
+        <div class="footerText">
+            <h2>Fitness Forge</h2>
+            <p>Take the first step towards a healthier, stronger you with <br>our unbeatable pricing plans. Let's sweat, achieve, and conquer together!</p>
+            <a href="#" class="social-icon"><i class="fab fa-instagram fa-2x"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f fa-2x"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter fa-2x"></i></a>
+        </div>
+        <div class="footerText">
+            <h2>Company</h2>
+            <p><a href="home.html">Business</a></p>
+            <p><a href="home.html">Franchise</a></p>
+            <p><a href="home.html">Partnership</a></p>
+        </div>
+        <div class="footerText">
+            <h2>Contact</h2>
+            <p><a href="Contactus.html">Contact us</a></p>
+            <p><a href="home.html">Privacy Policy</a></p>
+            <p><a href="home.html">Term and Conditions</a></p>
+        </div>
+    </div>
+    
+</body>
+</html>

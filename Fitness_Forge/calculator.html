@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI and BMR Calculator</title>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            background: url('bmi.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            background: rgba(29, 37, 44, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+            margin-inline: 35px;
+            
+        }
+
+        input {
+            outline: none;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            
+        }
+
+        button {
+            color: aliceblue;
+            padding: 15px 30px;
+            border: 2px solid white;
+            background: black;
+            display: block;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #333;
+        }
+
+        .output {
+            margin-top: 20px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        h1 {
+            color: navajowhite;
+            font-size: 35px;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 5px 15px;
+        }
+
+        p {
+            color: rgb(162, 213, 121);
+            font-size: 35px;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <h1>BMI Calculator</h1>
+            <p>Height in cm: <input type="text" id="height"><span id="height_error" class="error"></span></p>
+            <p>Weight in Kg: <input type="text" id="weight"><span id="weight_error" class="error"></span></p>
+            <button id="btn">Calculate</button>
+            <p class="output" id="output"></p>
+        </div>
+        <div class="calculator">
+            <h1>BMR Calculator</h1>
+            <p>Age: <input type="text" id="age"><span id="age_error" class="error"></span></p>
+            <div class="gender-container">
+                <p>Gender:</p>
+                <div class="gender-radio">
+                    <input type="radio" id="male" value="male" name="gender" checked>
+                    <label for="male">Male</label>
+                </div>
+                <div class="gender-radio">
+                    <input type="radio" id="female" value="female" name="gender">
+                    <label for="female">Female</label>
+                </div>
+            </div>
+            <p>Height in cm: <input type="text" id="bmr_height"><span id="bmr_height_error" class="error"></span></p>
+            <p>Weight in Kg: <input type="text" id="bmr_weight"><span id="bmr_weight_error" class="error"></span></p>
+            <button id="calculate_btn">Calculate</button>
+            <p class="output" id="bmr_output"></p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#btn').click(function() {
+                var height = parseInt($('#height').val());
+                var weight = parseInt($('#weight').val());
+                var result = $('#output');
+                var height_status = false, weight_status = false;
+
+                if (height === '' || isNaN(height) || height <= 0) {
+                    $('#height_error').html('Please provide a valid height');
+                } else {
+                    $('#height_error').html('');
+                    height_status = true;
+                }
+
+                if (weight === '' || isNaN(weight) || weight <= 0) {
+                    $('#weight_error').html('Please provide a valid weight');
+                } else {
+                    $('#weight_error').html('');
+                    weight_status = true;
+                }
+
+                if (height_status && weight_status) {
+                    var bmi = (weight / ((height * height) / 10000)).toFixed(2);
+
+                    if (bmi < 18.6) {
+                        result.html('Underweight: ' + bmi);
+                    } else if (bmi >= 18.6 && bmi < 24.9) {
+                        result.html('Normal: ' + bmi);
+                    } else {
+                        result.html('Overweight: ' + bmi);
+                    }
+                } else {
+                    alert('The form has errors');
+                    result.html('');
+                }
+            });
+
+            $('#calculate_btn').click(function() {
+                var age = parseInt($('#age').val());
+                var height = parseInt($('#bmr_height').val());
+                var weight = parseInt($('#bmr_weight').val());
+                var result = $('#bmr_output');
+                var age_status = false, height_status = false, weight_status = false;
+
+                if (age === '' || isNaN(age) || age < 10 || age > 100) {
+                    $('#age_error').html('Please provide a valid age');
+                } else {
+                    $('#age_error').html('');
+                    age_status = true;
+                }
+
+                if (height === '' || isNaN(height) || height <= 0) {
+                    $('#bmr_height_error').html('Please provide a valid height');
+                } else {
+                    $('#bmr_height_error').html('');
+                    height_status = true;
+                }
+
+                if (weight === '' || isNaN(weight) || weight <= 0) {
+                    $('#bmr_weight_error').html('Please provide a valid weight');
+                } else {
+                    $('#bmr_weight_error').html('');
+                    weight_status = true;
+                }
+
+                if (age_status && height_status && weight_status) {
+                    var gender = $('input[name="gender"]:checked').val();
+                    var BMR;
+                    if (gender === "male") {
+                        BMR = 10 * weight + 6.25 * height - 5 * age + 5;
+                    } else {
+                        BMR = 10 * weight + 6.25 * height - 5 * age - 161;
+                    }
+                    result.html(BMR.toLocaleString("en-US") + " Calories/day");
+                } else {
+                    alert('The form has errors');
+                    result.html('');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{
+            background-image: url(login.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 60px; 
+            background: rgba(32, 34, 40, 0.8); 
+            border-radius: 10px; 
+            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);    
+            text-align: center; 
+            max-width: 30%;
+        }
+
+        input[type="username"],
+        input[type="password"],
+        button {
+            width: 100%; 
+            padding: 10px; 
+            margin-bottom: 10px; 
+            font-size: 18px; 
+        }
+
+        input[type="username"],
+        input[type="password"]{
+            background: rgba(255,255,255,0.5);
+            border: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="mb-4" style="color: aliceblue;">Login</h2>
+        <div class="form-group">
+            <input type="text" class="form-control mb-2" id="username" name="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control mb-2" id="password" name="password" placeholder="Password">
+        </div>
+        <p class="mb-4"><a href="#">Forgot password?</a></p>
+        <button type="submit" class="btn btn-primary btn-block mb-3">Login</button>
+        <p style="color: aliceblue;">Not a member? <a href="#">Signup</a></p>
+    </div>
+    
+</body>
+</html>

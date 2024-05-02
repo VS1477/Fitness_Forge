@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        h1{
+            text-align: center;
+            /* background-color: rgba(56, 88, 117, 0.4);  */
+            margin-top: 4%;
+            margin-left: 2%;
+            margin-right: 2%;
+            
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff; /* White text color */
+        }
+        form{
+            text-align: center;
+            padding: 90px; 
+            background: rgba(34, 38, 41, 0.9); 
+            margin-top: 130px;
+            border-radius: 10px; 
+            margin-right: 90px;
+            margin-left: 60px;
+            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);    
+            max-width: 35%;
+            
+        }
+        body{
+            background-image: url(workout.jpg);
+            background-attachment: fixed;
+            background-size: cover ;
+            background-repeat: no-repeat;
+            color: #fff; /* White text color */
+        }
+        .btn {
+            padding: 14px 24px;
+            font-size: 18px;
+            color: black;
+            background-color: #4950b0; 
+            /* border-color: #32688b;  */
+        }
+        /* .btn:hover {
+            background-color: #395b72; 
+            border-color: #1f618d; 
+            height: 80px;
+            width:280px;
+            font-size: 22px;
+            cursor: pointer;
+        } */
+    </style>
+</head>
+<body>
+    <!-- <h1> Sculpt Your Body with Specialized Workouts for Every Muscle Group</h1> -->
+    <form>
+        <a href="chestandshoulder.html" class="btn btn-primary btn-lg btn-block mb-3">Chest And Shoulder</a>
+        <a href="Back.html" class="btn btn-primary btn-lg btn-block mb-3">Back</a>
+        <a href="Arms.html" class="btn btn-primary btn-lg btn-block mb-3">Arms</a>
+        <a href="Legs.html" class="btn btn-primary btn-lg btn-block mb-3">Legs</a>
+        <a href="Abs.html" class="btn btn-primary btn-lg btn-block mb-3">Abs</a>
+    </form>
+    <script>
+        $(document).ready(function(){
+            $(".btn").click(function(){
+                var exercise = $(this).text(); 
+                alert("You are directed to the " + exercise + " exercise page.");
+            });
+        });
+    </script>
+    
+</body>
+</html>
